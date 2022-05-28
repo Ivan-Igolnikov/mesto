@@ -1,0 +1,22 @@
+.popup__container {
+  width: 430px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  padding: 34px 36px 37px 36px;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.popup__container::after {
+  content: "";
+  position: absolute;
+  left: 439px;
+  top: -40px;
+  width: 32px;
+  height: 32px;
+  background-image: url(../images/Close\ Icon.svg);
+}
