@@ -1,15 +1,25 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/inter.css);
 
-.main-page {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-width: 320px;
-  max-width: 1280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #000000;
-}
+@import url(../blocks/main-page/main-page.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__line/header__line.css);
+
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__title-line/profile__title-line.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__title-button/profile__title-button.css);
+@import url(../blocks/profile/__subtitle/profile__subtitle.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__text/element__text.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/author/author.css);
