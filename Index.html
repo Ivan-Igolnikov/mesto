@@ -7,12 +7,58 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
   </head>
+
   <body class="main-page">
-    <header class="header"></header>
+
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="">
+      <div class="header__line"></div>
+    </header>
+
     <main class="content">
-      <section class="profile"></section>
-      <section class="elements"></section>
+      <section class="profile">
+        <div class="profile__info">
+          <img src="./images/Avatar.jpg" alt="" class="profile__avatar">
+          <div class="profile__heading">
+            <div class="profile__title-line">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <img class="profile__title-button" src="./images/Edit Button.png" alt=""></div>
+            <div>
+              <p class="profile__subtitle">Исследователь океана</p></div>
+          </div>
+        </div>
+        <img src="./images/Add Button.png" alt="">
+      </section>
+
+      <section class="elements">
+        <div class="element">
+          <img class="element__image" src="./images/1.jpg" alt=""></img>
+          <p class="element__text">Карачаевск</p>
+          <img src="./images/like.png" alt="">
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/2.jpg" alt="">
+          <p class="element__text">Гора Эльбрус</p>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/3.jpg" alt="">
+          <p class="element__text">Домбай</p>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/Ульвинские столбы - чёртов палец.jpg" alt="">
+          <p class="element__text">Ульвинские столбы</p>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/Карелия.jpg" alt="">
+          <p class="element__text">Карелия</p>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/nikolay-vorobyev-судак.jpg" alt="">
+          <p class="element__text">Судак</p>
+        </div>
+      </section>
     </main>
+
     <footer class="footer">
       <p class="author">© 2022 Ivan Igolnikov</p>
     </footer>
