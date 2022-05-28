@@ -1,135 +1,23 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/inter.css);
 
-.main-page {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #000000;
-}
+@import url(../blocks/main-page/main-page.css);
 
-.header {
-  width: 100%;
-  height: 74px;
-  min-width: 320px;
-  max-width: 880px;
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__line/header__line.css);
 
-.header__line {
-  width: 880px;
-  height: 0px;
-  opacity: 0.7;
-  border-top: 1px solid #545454;
-}
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__title-line/profile__title-line.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__title-button/profile__title-button.css);
+@import url(../blocks/profile/__subtitle/profile__subtitle.css);
 
-.profile {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
-}
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__text/element__text.css);
 
-.profile__info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profile__avatar {
-  width: 120px;
-  border-radius: 100%;
-  margin-right: 20px;
-}
-
-.profile__title-line {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.profile__title-button {
-  width: 24px;
-  height: 24px;
-  margin-left: 18px;
-}
-
-.profile__title {
-  margin: 0;
-  padding-bottom: 12px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 42px;
-  line-height: 48px;
-  color: #ffffff;
-}
-
-.profile__subtitle {
-  margin: 0;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-
-  color: #ffffff;
-}
-
-.elements {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  row-gap: 20px;
-  column-gap: 17px;
-  padding-top: 50px;
-}
-
-.element {
-  width: 282px;
-  height: 361px;
-  overflow: hidden;
-  background: #ffffff;
-  border-radius: 10px;
-}
-
-.element__image {
-  width: 282px;
-  height: 282px;
-}
-
-.element__text {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 29px;
-  color: #000000;
-  margin: 0;
-  padding: 25px 0 0 21px;
-}
-
-.footer {
-  margin-top: 66px;
-  margin-bottom: 50px;
-  width: 100%;
-  max-width: 880px;
-}
-
-.author {
-  margin: 0;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #545454;
-}
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/author/author.css);
