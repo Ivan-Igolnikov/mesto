@@ -3,3 +3,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 615px) {
+  .profile__info {
+    flex-direction: column;
+  }
+}

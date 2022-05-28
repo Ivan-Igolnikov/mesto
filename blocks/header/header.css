@@ -9,3 +9,17 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+
+@media screen and (max-width: 950px) {
+  .header {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .header {
+    max-width: 282px;
+    height: 56px;
+    margin-top: 28px;
+  }
+}
