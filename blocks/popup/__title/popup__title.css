@@ -10,3 +10,9 @@
   color: #000000;
   height: 14px;
 }
+
+@media screen and (max-width: 615px) {
+  .popup__title {
+    margin-top: 75px;
+  }
+}

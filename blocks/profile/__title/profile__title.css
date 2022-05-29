@@ -1,5 +1,6 @@
 .profile__title {
   margin: 0;
+  max-width: 400px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -7,6 +8,9 @@
   line-height: 48px;
   color: #ffffff;
   position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 615px) {
