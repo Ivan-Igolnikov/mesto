@@ -12,6 +12,11 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+.profile__add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 950px) {
   .profile__add-button {
     margin-top: 32px;

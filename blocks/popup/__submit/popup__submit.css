@@ -15,6 +15,11 @@
   color: #ffffff;
 }
 
+.popup__submit:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 615px) {
   .popup__submit {
     width: 238px;
