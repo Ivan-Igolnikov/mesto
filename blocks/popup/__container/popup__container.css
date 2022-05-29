@@ -10,13 +10,3 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
-
-.popup__container::after {
-  content: "";
-  position: absolute;
-  left: 439px;
-  top: -40px;
-  width: 32px;
-  height: 32px;
-  background-image: url(../images/Close\ Icon.svg);
-}

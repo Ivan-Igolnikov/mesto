@@ -9,28 +9,10 @@
   position: relative;
 }
 
-.profile__title::after {
-  content: "";
-  position: absolute;
-  left: 315px;
-  bottom: 8px;
-  width: 24px;
-  height: 24px;
-  background-image: url(../../../images/Edit\ Button.png);
-}
-
 @media screen and (max-width: 615px) {
   .profile__title {
     font-size: 27px;
     line-height: 33px;
-    text-align: center;
-  }
-  .profile__title::after {
-    left: 200px;
-    bottom: 6px;
-    width: 18px;
-    height: 18px;
-    background-image: url(../../../images/Edit\ Button.png);
-    background-size: cover;
+    padding-left: 28px;
   }
 }
