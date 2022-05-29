@@ -2,7 +2,7 @@
   width: 150px;
   height: 50px;
   border-radius: 2px;
-  background-image: url(../../../images/Add\ Button.png);
+  background-image: url(../../../images/add_button.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -18,6 +18,6 @@
   .profile__add-button {
     width: 282px;
     height: 50px;
-    background-image: url(../../../images/Add\ Button\ mobile.png);
+    background-image: url(../../../images/add_button_mobile.png);
   }
 }

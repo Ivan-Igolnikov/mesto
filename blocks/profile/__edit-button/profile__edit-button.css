@@ -2,7 +2,7 @@
   width: 24px;
   height: 24px;
   margin-left: 20px;
-  background-image: url(../../../images/Edit\ Button.png);
+  background-image: url(../../../images/edit_button.png);
 }
 
 @media screen and (max-width: 615px) {

@@ -4,7 +4,7 @@
   position: absolute;
   left: 438px;
   top: -40px;
-  background-image: url(../../../images/Close\ Icon.svg);
+  background-image: url(../../../images/close_icon.svg);
 }
 
 @media screen and (max-width: 615px) {
