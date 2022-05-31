@@ -2,3 +2,8 @@
   background-image: url(../../../../images/like-active.svg);
   opacity: 1;
 }
+
+.card__like_active:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

@@ -10,8 +10,6 @@ const profileDescription = document.querySelector('.profile__description');
 const popUpUserName = document.querySelector('.popup__user-name');
 const popUpUserDescription = document.querySelector('.popup__user-description');
 
-
-
 function openPopup() {
   popup.classList.add('popup_opened');
   popUpUserName.value = profileName.textContent
@@ -38,15 +36,16 @@ formPopup.addEventListener('submit', formSubmitHandler);
 
 // Like button
 
+const likeButtons = document.querySelectorAll('.card__like');
 const likeButton = document.querySelector('.card__like');
 
-
-function addLike () {
-  if (likeButton.classList.contains('card__like_active')) {
-    likeButton.classList.remove('card__like_active');  
-  } else {
-    likeButton.classList.add('card__like_active');
-  }
+function classAdd(likeButton) {
+  likeButton.classList.toggle('card__like_active')
 }
 
-likeButton.addEventListener('click', addLike);
+likeButtons.forEach((item) => {
+  likeButton.addEventListener('click', classAdd);
+})
+
+
+likeButtons.forEach((button) => button.addEventListener('click', () => classAdd(button)))
