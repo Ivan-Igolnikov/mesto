@@ -43,9 +43,4 @@ function classAdd(likeButton) {
   likeButton.classList.toggle('card__like_active')
 }
 
-likeButtons.forEach((item) => {
-  likeButton.addEventListener('click', classAdd);
-})
-
-
 likeButtons.forEach((button) => button.addEventListener('click', () => classAdd(button)))
