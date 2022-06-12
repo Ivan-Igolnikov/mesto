@@ -29,39 +29,16 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 
-@import url(../blocks/image-popup/image-popup.css);
-@import url(../blocks/image-popup/__container/image-popup__container.css);
-@import url(../blocks/image-popup/__text/image-popup__text.css);
-
 @import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__heading/popup__heading.css);
-@import url(../blocks/popup/__user-name/popup__user-name.css);
-@import url(../blocks/popup/__user-description/popup__user-description.css);
-@import url(../blocks/popup/__submit/popup__submit.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
-.image-popup__image {
-  object-fit: contain;
-  max-width: inherit;
-  max-height: inherit;
-}
+@import url(../blocks/preview/preview.css);
+@import url(../blocks/preview/__container/preview__container.css);
+@import url(../blocks/preview/__image/preview__image.css);
+@import url(../blocks/preview/__text/preview__text.css);
 
-.close-button_place_image-popup {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  right: -36px;
-  top: -40px;
-  background-image: url(../../images/close_icon.svg);
-}
-
-@media screen and (max-width: 615px) {
-  .close-button_place_image-popup {
-    left: 262px;
-    top: -36px;
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-  }
-}
+@import url(../blocks/form/__container/form__container.css);
+@import url(../blocks/form/__heading/form__heading.css);
+@import url(../blocks/form/__main-input/form__main-input.css);
+@import url(../blocks/form/__additional-input/form__additional-input.css);
+@import url(../blocks/form/__submit/form__submit.css);
