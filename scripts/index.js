@@ -32,18 +32,28 @@ const cardContainer = document.querySelector('.cards');
 const cardTemplate = document.querySelector('#item-card').content;
 
 
+const imagePopup = document.querySelector('.image-popup');
+const imagePopupPic = document.querySelector('.image-popup__image');
+const imagePopupText = document.querySelector('.image-popup__text');
+
+
 // При загрузке страницы берём массив, для каждого элемента клонируем типлейт, заполняем поля и вставляем в разметку. 
 // Сразу вешаем слушатель на лайк и дэлит
 window.onload = function () {
   initialCards.forEach((element) => {
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-    cardElement.querySelector('.card__image').src = element.link;
-    cardElement.querySelector('.card__text').textContent = element.name;
-    cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
+    const cardElementImage = cardElement.querySelector('.card__image').src = element.link;
+    const cardElementText = cardElement.querySelector('.card__text').textContent = element.name;
+    cardElement.querySelector('.card__like').addEventListener('click', function(evt) {
       evt.target.classList.toggle('card__like_active');
     });
-    cardElement.querySelector('.card__trash').addEventListener('click', function (evt) {
+    cardElement.querySelector('.card__trash').addEventListener('click', function() {
       cardElement.remove();
+    });
+    cardElement.querySelector('.card__image').addEventListener('click',function () {
+      imagePopup.classList.add('popup_opened');
+      imagePopupPic.src = cardElementImage;
+      imagePopupText.textContent = cardElementText;
     });
     cardContainer.append(cardElement); 
 })};
@@ -53,7 +63,7 @@ window.onload = function () {
 const popup = document.querySelector('.popup');
 const formPopup = document.querySelector('.popup__container');
 const editButton = document.querySelector('.profile__edit-button');
-const closeButton = document.querySelector('.popup__close-button');
+const closeButton = document.querySelector('.close-button');
 const addButton = document.querySelector('.profile__add-button');
 
 const profileName = document.querySelector('.profile__name');
@@ -63,6 +73,7 @@ const popUpUserDescription = document.querySelector('.popup__user-description');
 
 const popupHeading = document.querySelector('.popup__heading');
 const popupSubmit = document.querySelector('.popup__submit');
+
 
 function openPopupInfo() {
   popup.classList.add('popup_opened');
@@ -86,7 +97,7 @@ function closePopup() {
   popUpUserDescription.placeholder = '';
   popUpUserName.value = '';
   popUpUserDescription.value = '';
-}
+  }
 
 // Общая функция длля события submit. 
 // Первое условие для редактирования профиля. 
@@ -102,16 +113,24 @@ function formSubmitHandler (evt) {
   else if (popupHeading.textContent === 'Новое место' && popUpUserName.value !== "" && popUpUserDescription.value.includes('https://')) {
     evt.preventDefault(); 
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-    cardElement.querySelector('.card__text').textContent = popUpUserName.value;
-    cardElement.querySelector('.card__image').src = popUpUserDescription.value;
+    const cardText = cardElement.querySelector('.card__text').textContent = popUpUserName.value;
+    const cardImage = cardElement.querySelector('.card__image').src = popUpUserDescription.value;
     cardElement.querySelector('.card__like').addEventListener('click', function (evt) {
       evt.target.classList.toggle('card__like_active');
     });
-    cardElement.querySelector('.card__trash').addEventListener('click', function (evt) {
+    cardElement.querySelector('.card__trash').addEventListener('click', function () {
       cardElement.remove();
+    });
+    cardElement.querySelector('.card__image').addEventListener('click',function() {
+      imagePopup.classList.add('popup_opened');
+      imagePopupPic.src = cardImage;
+      imagePopupText.textContent =  cardText;
     });
     cardContainer.prepend(cardElement); 
     closePopup();
+  }
+  else if (imagePopup.classList.contains('popup_opened')) {
+    imagePopup.classList.remove('popup_opened');
   }
   else {
     evt.preventDefault(); 
@@ -127,7 +146,8 @@ closeButton.addEventListener('click', closePopup);
 addButton.addEventListener('click', openPopupContent);
 formPopup.addEventListener('submit', formSubmitHandler);
 
+// Попап картинки
 
 
-
+// Объявляем функцию добавления класса для попапа картинки. 
 
