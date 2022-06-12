@@ -1,0 +1,8 @@
+.card__trash {
+  width: 18px;
+  min-height: 19px;
+  background-image: url(../../../images/trash_button.svg);
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

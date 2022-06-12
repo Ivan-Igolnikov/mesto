@@ -37,6 +37,7 @@ const imagePopupPic = document.querySelector('.image-popup__image');
 const imagePopupText = document.querySelector('.image-popup__text');
 
 
+
 // При загрузке страницы берём массив, для каждого элемента клонируем типлейт, заполняем поля и вставляем в разметку. 
 // Сразу вешаем слушатель на лайк и дэлит
 window.onload = function () {
@@ -62,6 +63,7 @@ window.onload = function () {
 // ФАНТАСТИЧЕСКИЕ ПАПАПЫ, И ГДЕ ОНИ ОБИТАЮТ
 const popup = document.querySelector('.popup');
 const formPopup = document.querySelector('.popup__container');
+const formPopupImage = document.querySelector('.image-popup__container');
 const editButton = document.querySelector('.profile__edit-button');
 const closeButton = document.querySelector('.close-button');
 const addButton = document.querySelector('.profile__add-button');
@@ -91,13 +93,19 @@ function openPopupContent() {
   popUpUserDescription.placeholder = 'Ссылка на картинку';
 }
 
-function closePopup() {
+function closePopup(e) {
+  
+  if (e.target.parentNode === formPopup) {
   popup.classList.remove('popup_opened');
   popUpUserName.placeholder = '';
   popUpUserDescription.placeholder = '';
   popUpUserName.value = '';
   popUpUserDescription.value = '';
   }
+  else if (e.target.parentNode === formPopupImage) {
+    const imagePopup = document.querySelector('.image-popup');
+    imagePopup.classList.remove('popup_opened');
+  }};
 
 // Общая функция длля события submit. 
 // Первое условие для редактирования профиля. 
@@ -128,9 +136,6 @@ function formSubmitHandler (evt) {
     });
     cardContainer.prepend(cardElement); 
     closePopup();
-  }
-  else if (imagePopup.classList.contains('popup_opened')) {
-    imagePopup.classList.remove('popup_opened');
   }
   else {
     evt.preventDefault(); 
