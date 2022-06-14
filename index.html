@@ -49,13 +49,27 @@
       <p class="footer__author">&copy;&nbsp;2022 Ivan Igolnikov</p>
     </footer>
 
-    <section class="popup form">
-      <form class="form__container">
-        <h2 class="form__heading"></h2>
-        <input class="form__main-input" type="text" value="" />
-        <input class="form__additional-input" type="text" value="" />
-        <button class="form__submit button" type="submit" value=""></button>
-        <button class="close-button button" type="button"></button>
+    <section class="popup profile-popup">
+      <form class="popup__container">
+        <h2 class="popup__heading">Редактировать профиль</h2>
+        <input class="popup__main-input" type="text" value="" />
+        <input class="popup__additional-input" type="text" value="" />
+        <button class="popup__submit button" type="submit" value="">
+          Сохранить
+        </button>
+        <button class="popup__close-button button" type="button"></button>
+      </form>
+    </section>
+
+    <section class="popup add-popup">
+      <form class="popup__container">
+        <h2 class="popup__heading">Новое место</h2>
+        <input class="popup__main-input" type="text" value="" />
+        <input class="popup__additional-input" type="text" value="" />
+        <button class="popup__submit button" type="submit" value="">
+          Создать
+        </button>
+        <button class="popup__close-button button" type="button"></button>
       </form>
     </section>
 
@@ -63,7 +77,7 @@
       <div class="preview__container">
         <img class="preview__image" src="#" />
         <p class="preview__text"></p>
-        <button class="close-button button" type="button"></button>
+        <button class="popup__close-button button" type="button"></button>
       </div>
     </section>
 
