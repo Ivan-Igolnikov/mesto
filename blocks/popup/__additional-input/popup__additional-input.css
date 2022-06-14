@@ -1,5 +1,5 @@
-.form__main-input {
-  margin-top: 47px;
+.popup__additional-input {
+  margin-top: 27px;
   padding: 0 0 13px 0;
   border: 0;
   font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -10,10 +10,4 @@
   color: #000000;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-@media screen and (max-width: 615px) {
-  .form__main-input {
-    margin-top: 75px;
-  }
 }
