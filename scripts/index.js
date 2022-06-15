@@ -86,7 +86,7 @@ function deleteCard(e) {
 }
 
 function openPreview(elementName, elementLink) {
-  preview.classList.add('popup_opened');
+  openPopup(preview)
   previewImage.src = elementLink;
   previewText.textContent = elementName;
   previewImage.alt = elementName;
