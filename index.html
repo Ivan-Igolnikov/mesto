@@ -50,10 +50,28 @@
     </footer>
 
     <section class="popup profile-popup">
-      <form class="popup__container">
+      <form class="popup__container" novalidate>
         <h2 class="popup__heading">Редактировать профиль</h2>
-        <input class="popup__main-input" type="text" value="" />
-        <input class="popup__additional-input" type="text" value="" />
+        <input
+          class="popup__main-input input"
+          type="text"
+          value=""
+          required
+          minlength="2"
+          maxlength="40"
+          id="name-input"
+        />
+        <span class="name-input-error error-message"></span>
+        <input
+          class="popup__additional-input input"
+          type="text"
+          value=""
+          required
+          minlength="2"
+          maxlength="200"
+          id="about-input"
+        />
+        <span class="about-input-error error-message"></span>
         <button class="popup__submit button" type="submit" value="">
           Сохранить
         </button>
@@ -62,10 +80,26 @@
     </section>
 
     <section class="popup add-popup">
-      <form class="popup__container">
+      <form class="popup__container" novalidate>
         <h2 class="popup__heading">Новое место</h2>
-        <input class="popup__main-input" type="text" value="" />
-        <input class="popup__additional-input" type="text" value="" />
+        <input
+          class="popup__main-input input"
+          type="text"
+          value=""
+          required
+          minlength="2"
+          maxlength="30"
+          id="title-input"
+        />
+        <span class="title-input-error error-message"></span>
+        <input
+          class="popup__additional-input input"
+          type="url"
+          value=""
+          required
+          id="link-input"
+        />
+        <span class="link-input-error error-message"></span>
         <button class="popup__submit button" type="submit" value="">
           Создать
         </button>
@@ -75,7 +109,7 @@
 
     <section class="popup preview">
       <div class="preview__container">
-        <img class="preview__image" src="#" />
+        <img class="preview__image" src="" />
         <p class="preview__text"></p>
         <button class="popup__close-button button" type="button"></button>
       </div>

@@ -49,6 +49,79 @@ const preview = document.querySelector('.preview');
 const previewImage = document.querySelector('.preview__image');
 const previewText = document.querySelector('.preview__text');
 
+popupMainInputs[0].value = profileName.textContent;
+popupAdditionalInputs[0].value = profileDescription.textContent;
+
+
+// ВАЛИДАЦИЯ ФОРМ
+
+function showInputError(formElement, inputElement, errorMessage) {
+  // Выбираем span ошибки
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  //добавить текст в span
+  errorElement.textContent = errorMessage;
+  //отобразить стилизацию input'а
+  inputElement.classList.add('error');
+  //отобразить span
+  errorElement.classList.add('error_active');
+};
+
+function hideInputError(formElement, inputElement) {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('error');
+  errorElement.classList.remove('error_active');
+  errorElement.textContent = '';
+};
+
+//если input не валиден - показываем подсказку,
+//если всё ок - убираем
+function isValid(formElement, inputElement) {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
+ 
+function hasInvalidInput(inputList) {
+  // возвращает true/false
+  return inputList.some((inputElement) => {
+   return !inputElement.validity.valid;
+})
+};
+
+function toggleButtonState(inputList, buttonElement) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add('form__submit_inactive');
+  } else {
+    buttonElement.classList.remove('form__submit_inactive');
+  }
+};
+
+
+// Вызовем функцию isValid на каждый ввод символа
+// popupMainInputs[0].addEventListener('input', isValid);
+
+function setEventListener(formElement) {
+  const inputList = Array.from(formElement.querySelectorAll('.input'));
+  const buttonElement = formElement.querySelector('.popup__submit');
+  toggleButtonState(inputList, buttonElement)
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+      isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+};
+
+function enableValidation() {
+  const formList = Array.from(document.querySelectorAll('.popup__container'));
+  formList.forEach((formElement) => {
+    setEventListener(formElement);
+  })
+};
+
+enableValidation();
 
 // ФУНКЦИИ
 
@@ -86,7 +159,7 @@ function deleteCard(e) {
 }
 
 function openPreview(elementName, elementLink) {
-  openPopup(preview)
+  openPopup(preview);
   previewImage.src = elementLink;
   previewText.textContent = elementName;
   previewImage.alt = elementName;
@@ -127,15 +200,12 @@ window.onload = () => {
     cardContainer.append(createCard(element.name, element.link)); 
 })};
 
-infoButton.addEventListener('click', openPopupEditProfile);
+
+
+infoButton.addEventListener('click', openPopupEditProfile,);
 addButton.addEventListener('click', openPopupAddCard);
 closeButtons.forEach((elem) => {elem.addEventListener ('click', closeAllPopup)});
 forms[0].addEventListener ('submit', submitInfo);
 forms[1].addEventListener ('submit', submitCard);
-
-
-
-
-
 
 
