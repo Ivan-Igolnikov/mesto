@@ -33,7 +33,11 @@
 @import url(../blocks/popup/__heading/popup__heading.css);
 @import url(../blocks/popup/__main-input/popup__main-input.css);
 @import url(../blocks/popup/__additional-input/popup__additional-input.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(../blocks/popup/__submit/popup__submit.css);
+@import url(../blocks/popup/__submit/_inactive/popup__submit_inactive.css);
 @import url(../blocks/popup/__close-button/close-button.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 
@@ -41,35 +45,3 @@
 @import url(../blocks/preview/__container/preview__container.css);
 @import url(../blocks/preview/__image/preview__image.css);
 @import url(../blocks/preview/__text/preview__text.css);
-
-.form__submit_inactive {
-  opacity: 0.2;
-  color: #000000;
-  border: 1px solid #000000;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.form__submit_inactive:hover {
-  opacity: 0.2;
-}
-
-.error-message {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  color: #ff0000;
-
-  display: block;
-  min-height: 15px;
-  visibility: hidden;
-}
-
-.error {
-  border-bottom: 1px solid #ff0000;
-}
-
-.error_active {
-  visibility: visible;
-}

@@ -53,7 +53,7 @@
       <form class="popup__container" novalidate>
         <h2 class="popup__heading">Редактировать профиль</h2>
         <input
-          class="popup__main-input input"
+          class="popup__main-input popup__input"
           type="text"
           value=""
           required
@@ -61,9 +61,9 @@
           maxlength="40"
           id="name-input"
         />
-        <span class="name-input-error error-message"></span>
+        <span class="name-input-error popup__error"></span>
         <input
-          class="popup__additional-input input"
+          class="popup__additional-input popup__input"
           type="text"
           value=""
           required
@@ -71,7 +71,7 @@
           maxlength="200"
           id="about-input"
         />
-        <span class="about-input-error error-message"></span>
+        <span class="about-input-error popup__error"></span>
         <button class="popup__submit button" type="submit" value="">
           Сохранить
         </button>
@@ -83,7 +83,7 @@
       <form class="popup__container" novalidate>
         <h2 class="popup__heading">Новое место</h2>
         <input
-          class="popup__main-input input"
+          class="popup__main-input popup__input"
           type="text"
           value=""
           required
@@ -91,15 +91,15 @@
           maxlength="30"
           id="title-input"
         />
-        <span class="title-input-error error-message"></span>
+        <span class="title-input-error popup__error"></span>
         <input
-          class="popup__additional-input input"
+          class="popup__additional-input popup__input"
           type="url"
           value=""
           required
           id="link-input"
         />
-        <span class="link-input-error error-message"></span>
+        <span class="link-input-error popup__error"></span>
         <button class="popup__submit button" type="submit" value="">
           Создать
         </button>
@@ -126,5 +126,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
