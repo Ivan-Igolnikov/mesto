@@ -50,10 +50,10 @@
     </footer>
 
     <section class="popup profile-popup">
-      <form class="popup__container" novalidate>
+      <form class="popup__container popup__container_profile" novalidate>
         <h2 class="popup__heading">Редактировать профиль</h2>
         <input
-          class="popup__main-input popup__input"
+          class="popup__main-input popup__input popup__main-input_profile"
           type="text"
           value=""
           required
@@ -63,7 +63,7 @@
         />
         <span class="name-input-error popup__error"></span>
         <input
-          class="popup__additional-input popup__input"
+          class="popup__additional-input popup__input popup__additional-input_profile"
           type="text"
           value=""
           required
@@ -80,10 +80,10 @@
     </section>
 
     <section class="popup add-popup">
-      <form class="popup__container" novalidate>
+      <form class="popup__container popup__container_add" novalidate>
         <h2 class="popup__heading">Новое место</h2>
         <input
-          class="popup__main-input popup__input"
+          class="popup__main-input popup__input popup__main-input_add"
           type="text"
           value=""
           required
@@ -93,7 +93,7 @@
         />
         <span class="title-input-error popup__error"></span>
         <input
-          class="popup__additional-input popup__input"
+          class="popup__additional-input popup__input popup__additional-input_add"
           type="url"
           value=""
           required
@@ -125,7 +125,7 @@
         </div>
       </li>
     </template>
-    <script src="./scripts/index.js"></script>
     <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
