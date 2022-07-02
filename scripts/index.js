@@ -36,9 +36,11 @@ const cardTemplate = document.querySelector('#item-card').content;
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.profile-popup');
 const popupAdd = document.querySelector('.add-popup');
 const preview = document.querySelector('.preview');
+
 const previewImage = document.querySelector('.preview__image');
 const previewText = document.querySelector('.preview__text');
 
@@ -46,6 +48,7 @@ const buttonInfo = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const buttonsClose = document.querySelectorAll('.popup__close-button');
 const buttonSubmitProfile = popupProfile.querySelector('.popup__submit');
+const buttonSubmitAdd = popupAdd.querySelector('.popup__submit');
 
 const formProfile = document.querySelector('.popup__container_profile');
 const formAdd = document.querySelector('.popup__container_add');
@@ -57,9 +60,8 @@ const popupAddAdditionalInput = popupAdd.querySelector('.popup__additional-input
 
 
 // Константа здесь для единообразия.
-// Используется функциями enableSubmitButton и clearValidation, 
-const settings = {
-  formSelector: '.popup__container',
+// Используется функциями enableSubmitButton, disableSubmitButton и clearValidation, 
+const relatedToValidationConfig = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_inactive',
@@ -97,16 +99,21 @@ function deleteCard(e) {
 }
 
 function enableSubmitButton(button) {
-  button.classList.remove(settings.inactiveButtonClass);
+  button.classList.remove(relatedToValidationConfig.inactiveButtonClass);
   button.removeAttribute('disabled');
 }
 
+function disableSubmitButton(button) {
+  button.classList.add(relatedToValidationConfig.inactiveButtonClass);
+  button.setAttribute('disabled', true);
+}
+
 function clearValidation(popup) {
-  popup.querySelectorAll(settings.inputSelector).forEach((input) => {  
-    input.classList.remove(settings.inputErrorClass);
+  popup.querySelectorAll(relatedToValidationConfig.inputSelector).forEach((input) => {  
+    input.classList.remove(relatedToValidationConfig.inputErrorClass);
   });
   popup.querySelectorAll('.popup__error').forEach((message) => {
-    message.classList.remove(settings.errorClass);
+    message.classList.remove(relatedToValidationConfig.errorClass);
     message.textContent = '';
   });
 }
@@ -115,7 +122,7 @@ function clearValidation(popup) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', clickOverlayToQuit);
+  popup.addEventListener('mousedown', clickOverlayToQuit);
   document.addEventListener('keydown', pressEscToQuit);
 }
 
@@ -137,6 +144,7 @@ function submitInfo(e) {
 function openPopupAddCard() {
   clearForm(formAdd);
   clearValidation(popupAdd);
+  disableSubmitButton(buttonSubmitAdd);
   popupAddMainInput.placeholder = 'Название';
   popupAddAdditionalInput.placeholder = 'Ссылка на картинку';
   openPopup(popupAdd);
@@ -172,7 +180,7 @@ function openPreview(elementName, elementLink) {
 function closePopup() {
   const popup = document.querySelector('.popup_opened');
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('click', clickOverlayToQuit);
+  popup.removeEventListener('mousedown', clickOverlayToQuit);
   document.removeEventListener('keydown', pressEscToQuit);
 }
 
@@ -203,8 +211,6 @@ formProfile.addEventListener ('submit', submitInfo);
 formAdd.addEventListener ('submit', submitCard);
 
 buttonsClose.forEach((button) => {button.addEventListener ('click',closePopup)});
-
-
 
 
 
