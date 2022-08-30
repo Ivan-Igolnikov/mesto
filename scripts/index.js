@@ -187,10 +187,10 @@ function closePopup() {
 
 // ДЕЙСТВИЯ
 
-window.onload = () => {
-  initialCards.forEach((element) => {
-    cardContainer.append(createCard(element.name, element.link)); 
-})};
+// window.onload = () => {
+//   initialCards.forEach((element) => {
+//     cardContainer.append(createCard(element.name, element.link)); 
+// })};
 
 popupProfileMainInput.value = profileName.textContent;
 popupProfileAdditionalInput.value = profileDescription.textContent;
