@@ -1,5 +1,3 @@
-
-  
   class Card {
     constructor(data, templateSelector) {
       this._image = data.link;
@@ -48,7 +46,6 @@
       //Добавим слушатели
       this._setEventListeners();
     
-    
       // Вернём элемент наружу
       return this._element;
   
@@ -67,8 +64,6 @@
   }); 
   
 
-
-  
 
 
 
