@@ -1,10 +1,9 @@
-import {openPopup, preview, previewImage, previewText} from './index.js';
-
 class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, previewFunction) {
     this._image = data.link;
     this._text = data.name; 
     this._templateSelector = templateSelector;
+    this._openPreview = previewFunction;
   }
   
   _getTemplate() {
@@ -23,13 +22,7 @@ class Card {
 
   _remove() {
     this._element.remove();
-  }
-
-  _openPreview() {
-    openPopup(preview);
-    previewImage.src = this._image;
-    previewText.textContent = this._text;
-    previewImage.alt = this._text;
+    this._element = null;
   }
 
   _setEventListeners(cardImage) {
@@ -42,7 +35,7 @@ class Card {
     });
 
     cardImage.addEventListener('click', () => {
-      this._openPreview() 
+      this._openPreview(this._text, this._image);
     });
 
   }
@@ -50,7 +43,6 @@ class Card {
   generateCard() {
       // Запишем разметку в приватное поле _element. 
     this._element = this._getTemplate();
-
       // Добавим данные
     const cardImage = this._element.querySelector('.card__image');
     cardImage.src = this._image;

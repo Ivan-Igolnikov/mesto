@@ -2,7 +2,7 @@
 
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
-export {openPopup, preview, previewImage, previewText};
+
 // ДАННЫЕ
 
 const initialCards = [
@@ -127,6 +127,13 @@ function closePopup() {
   document.removeEventListener('keydown', pressEscToQuit);
 }
 
+function openPreview(name, link) {
+  previewImage.src = link;
+  previewImage.alt = name;
+  previewText.textContent = name;
+  openPopup(preview);
+}
+
 function openPopupEditProfile() {
   clearValidation(popupProfile);
   enableSubmitButton(buttonSubmitProfile);
@@ -152,13 +159,13 @@ function openPopupAddCard() {
 }  
 
 function createUserCard(name, link) {
-  const data = [{name: name}, {link: link}];
-  const card = new Card(data, '#item-card');
+  const card = new Card({name, link}, '#item-card', openPreview);
   return card.generateCard();
 }
 
 function submitCard(e) {
   e.preventDefault(); 
+  console.log(popupAddMainInput.value, popupAddAdditionalInput.value)
   cardContainer.prepend(createUserCard(popupAddMainInput.value, popupAddAdditionalInput.value)); 
   closePopup();
 }
@@ -168,7 +175,7 @@ function submitCard(e) {
 // ДЕЙСТВИЯ
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '#item-card');
+  const card = new Card(item, '#item-card', openPreview);
   const cardElement = card.generateCard();
   cardContainer.append(cardElement);
 }); 
