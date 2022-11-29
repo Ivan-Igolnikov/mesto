@@ -44,12 +44,10 @@ const validationData = {
 // ОБЪЯВЛЕНИЯ
 
 const cardContainer = document.querySelector('.cards');
-const cardTemplate = document.querySelector('#item-card').content;
 
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
-const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.profile-popup');
 const popupAdd = document.querySelector('.add-popup');
 const preview = document.querySelector('.preview');
@@ -92,25 +90,6 @@ function pressEscToQuit(e) {
   };
 }
 
-function enableSubmitButton(button) {
-  button.classList.remove(validationData.inactiveButtonClass);
-  button.removeAttribute('disabled');
-}
-
-function disableSubmitButton(button) {
-  button.classList.add(validationData.inactiveButtonClass);
-  button.setAttribute('disabled', true);
-}
-
-function clearValidation(popup) {
-  popup.querySelectorAll(validationData.inputSelector).forEach((input) => {  
-    input.classList.remove(validationData.inputErrorClass);
-  });
-  popup.querySelectorAll('.popup__error').forEach((message) => {
-    message.classList.remove(validationData.errorClass);
-    message.textContent = '';
-  });
-}
 
 // Основные 
 
@@ -135,8 +114,8 @@ function openPreview(name, link) {
 }
 
 function openPopupEditProfile() {
-  clearValidation(popupProfile);
-  enableSubmitButton(buttonSubmitProfile);
+  // clearValidation(popupProfile);
+  // enableSubmitButton(buttonSubmitProfile);
   popupProfileMainInput.value = profileName.textContent;
   popupProfileAdditionalInput.value = profileDescription.textContent;
   openPopup(popupProfile);
@@ -150,11 +129,9 @@ function submitInfo(e) {
 }
 
 function openPopupAddCard() {
-  clearForm(formAdd);
-  clearValidation(popupAdd);
-  disableSubmitButton(buttonSubmitAdd);
-  popupAddMainInput.placeholder = 'Название';
-  popupAddAdditionalInput.placeholder = 'Ссылка на картинку';
+  // clearForm(formAdd);
+  // clearValidation(popupAdd);
+  // disableSubmitButton(buttonSubmitAdd);
   openPopup(popupAdd);
 }  
 
@@ -165,7 +142,6 @@ function createUserCard(name, link) {
 
 function submitCard(e) {
   e.preventDefault(); 
-  console.log(popupAddMainInput.value, popupAddAdditionalInput.value)
   cardContainer.prepend(createUserCard(popupAddMainInput.value, popupAddAdditionalInput.value)); 
   closePopup();
 }
