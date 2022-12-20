@@ -3,6 +3,7 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 
+
 // ДАННЫЕ
 
 const initialCards = [
@@ -41,8 +42,6 @@ const validationData = {
   errorClass: 'popup__error_visible'
 }
 
-const formValidators = {}
-
 
 // ОБЪЯВЛЕНИЯ
 
@@ -61,8 +60,6 @@ const previewText = document.querySelector('.preview__text');
 const buttonInfo = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const buttonsClose = document.querySelectorAll('.popup__close-button');
-const buttonSubmitProfile = popupProfile.querySelector('.popup__submit');
-const buttonSubmitAdd = popupAdd.querySelector('.popup__submit');
 
 const formProfile = document.querySelector('.popup__container_profile');
 const formAdd = document.querySelector('.popup__container_add');
@@ -72,14 +69,12 @@ const popupProfileAdditionalInput = popupProfile.querySelector('.popup__addition
 const popupAddMainInput = popupAdd.querySelector('.popup__main-input_add');
 const popupAddAdditionalInput = popupAdd.querySelector('.popup__additional-input_add');
 
+const formValidators = {}
+
 
 // ФУНКЦИИ
 
 // Вспомогательные
-
-function clearForm(form) {
-  form.reset();
-}
 
 function clickOverlayToQuit(e) {
   if (e.target === e.currentTarget) {
@@ -151,25 +146,15 @@ function submitCard(e) {
   closePopup();
 }
 
-// Включение валидации
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector))
   formList.forEach((formElement) => {
     const validator = new FormValidator(config, formElement)
-// получаем данные из атрибута `name` у формы
     const formName = formElement.getAttribute('name')
-
-   // вот тут в объект записываем под именем формы
     formValidators[formName] = validator;
-   validator.enableValidation();
+    validator.enableValidation();
   });
-};
-
-
-
-
-
-
+}
 
 
 // ДЕЙСТВИЯ
@@ -179,11 +164,7 @@ initialCards.forEach(({name, link}) => {
   cardContainer.append(cardElement);
 }); 
 
-
-
-
 enableValidation(validationData);
-
 
 popupProfileMainInput.value = profileName.textContent;
 popupProfileAdditionalInput.value = profileDescription.textContent;
