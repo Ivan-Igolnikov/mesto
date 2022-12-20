@@ -4,6 +4,9 @@ class Card {
     this._text = data.name; 
     this._templateSelector = templateSelector;
     this._openPreview = previewFunction;
+    this._element = this._getTemplate();
+    this._likeButton = this._element.querySelector('.card__like');
+    
   }
   
   _getTemplate() {
@@ -17,7 +20,7 @@ class Card {
   }
 
   _like() {
-    this._element.querySelector('.card__like').classList.toggle('card__like_active');
+    this._likeButton.classList.toggle('card__like_active');
   }
 
   _remove() {
@@ -30,7 +33,7 @@ class Card {
       this._remove();
     });
 
-    this._element.querySelector('.card__like').addEventListener('click', () => {
+    this._likeButton.addEventListener('click', () => {
       this._like();
     });
 
@@ -41,8 +44,7 @@ class Card {
   }
   
   generateCard() {
-      // Запишем разметку в приватное поле _element. 
-    this._element = this._getTemplate();
+
       // Добавим данные
     const cardImage = this._element.querySelector('.card__image');
     cardImage.src = this._image;

@@ -33,12 +33,15 @@ const initialCards = [
 ];
 
 const validationData = {
+  formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_inactive',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 }
+
+const formValidators = {}
 
 
 // ОБЪЯВЛЕНИЯ
@@ -114,10 +117,12 @@ function openPreview(name, link) {
 }
 
 function openPopupEditProfile() {
-  // clearValidation(popupProfile);
-  // enableSubmitButton(buttonSubmitProfile);
+  
   popupProfileMainInput.value = profileName.textContent;
   popupProfileAdditionalInput.value = profileDescription.textContent;
+  formValidators['profile-form'].resetErrors()
+  //resetButton добавлена, чтобы при верном изначальном значении "Жак-Ив Кусто" можно было сохранить его без изменений
+  formValidators['profile-form'].resetButton()
   openPopup(popupProfile);
 }
 
@@ -129,9 +134,9 @@ function submitInfo(e) {
 }
 
 function openPopupAddCard() {
-  // clearForm(formAdd);
-  // clearValidation(popupAdd);
-  // disableSubmitButton(buttonSubmitAdd);
+  formValidators['card-form'].resetForm()
+  formValidators['card-form'].resetErrors()
+  formValidators['card-form'].resetButton()
   openPopup(popupAdd);
 }  
 
@@ -146,21 +151,39 @@ function submitCard(e) {
   closePopup();
 }
 
+// Включение валидации
+function enableValidation(config) {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement)
+// получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute('name')
+
+   // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+   validator.enableValidation();
+  });
+};
+
+
+
+
+
+
 
 
 // ДЕЙСТВИЯ
 
-initialCards.forEach((item) => {
-  const card = new Card(item, '#item-card', openPreview);
-  const cardElement = card.generateCard();
+initialCards.forEach(({name, link}) => {
+  const cardElement = createUserCard(name, link); 
   cardContainer.append(cardElement);
 }); 
 
-const formList = Array.from(document.querySelectorAll('.popup__container'));
-formList.forEach((form) => {
-    const formForValidation = new FormValidator(validationData, form);
-    formForValidation.enableValidation();
-});
+
+
+
+enableValidation(validationData);
+
 
 popupProfileMainInput.value = profileName.textContent;
 popupProfileAdditionalInput.value = profileDescription.textContent;
